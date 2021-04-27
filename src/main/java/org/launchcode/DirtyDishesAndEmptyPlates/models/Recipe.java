@@ -10,7 +10,6 @@ public class Recipe extends AbstractEntity{
     @NotNull
     @Size(min=3, max=64)
     private String title;
-    private Integer recipeID;
     private String version;
     private String author;
     private Integer serveQty;
@@ -41,14 +40,6 @@ public class Recipe extends AbstractEntity{
 
     public void setTitle(String title) {
         this.title = title;
-    }
-
-    public Integer getRecipeID() {
-        return recipeID;
-    }
-
-    public void setRecipeID(Integer recipeID) {
-        this.recipeID = recipeID;
     }
 
     public String getVersion() {
