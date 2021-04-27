@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <p>&nbsp;</p>
+    <h2>Dirty Dishes & Empty Plates</h2>
+    I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
+    the appetite, making his guest suffer a voracious need to devour the delicious
+    dishes before them. On this site I will take the users on a journey meant to
+    arouse each of the culinary senses: Aroma, taste, feel, until one can literally
+    hear one&apos;s growling stomach demanding to be satisfied.
+
+    Within also are tools to help those across the full spectrum of from home chef to professional,
+    &quot;What&apos;s a spatula&quot; to &quot;tempering eggs is indeed an art,
+    but an attainable one&quot; achieve dishes that will thrill them through
+    every stage: prep, cooking, and eating; delighting their guests.
+
+    <!--ul>
+        <li th:each="job : ${jobs}">
+            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
+        </li>
+    </ul-->
+
+</div>
+
+</body>
+</html>
