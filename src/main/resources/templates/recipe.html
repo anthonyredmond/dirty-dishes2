@@ -7,25 +7,24 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-  <!--ul>
-      <li th:each="job : ${jobs}">
-          <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
-      </li>
-  </ul-->
   <h1 th:text="${'Recipe: ' + recipe.title}">Default Title</h1>
 
   <nav th:replace="fragments :: page-header"></nav>
 
   <div class="recipe-listing">
-    <!--
-    title, author, serveQty, serveQtyType, prepTime, cookTime, portion
-    -->
     <table class="recipe-listing">
       <tr>
-        <td th:text="${'ID: ' + recipe.id}"></td>
-        <td th:text="${'Title: ' + recipe.name}"></td>
-        <td th:text="${'Author: ' + recipe.author}"></td>
-        <!--td th:text="${'Serves: ' + recipe.serveQty}"></td-->
+        <td th:text="${'ID: ' + recipe.id}">id</td>
+        <td th:text="${'Title: ' + recipe.title}">title</td>
+        <td th:text="${'Author: ' + recipe.author}">author</td>
+      </tr>
+      <tr>
+        <td th:text="${'Prep Time: ' + recipe.preptime + ' minutes'}">prep time</td>
+        <td th:text="${'Cook Time: ' + recipe.cooktime + ' minutes'}">cook time</td>
+        <td th:text="${'Serves: ' + recipe.serveqty + ' ' + recipe.serveqtytype}">serves</td>
+      </tr>
+      <tr>
+        <td colspan=3 th:text="${'Description: ' + recipe.description}">description</td>
       </tr>
     </table>
   </div>

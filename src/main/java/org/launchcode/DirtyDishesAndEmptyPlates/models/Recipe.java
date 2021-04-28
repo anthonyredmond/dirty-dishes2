@@ -12,28 +12,31 @@ public class Recipe extends AbstractEntity{
     private String title;
     private String version;
     private String author;
-    private Integer serveQty;
-    private String serveQtyType;
-    private Integer prepTime;
-    private Integer cookTime;
+    private Integer serveqty;
+    private String serveqtytype;
+    private Integer preptime;
+    private Integer cooktime;
     private String portion;
+    private String description;
 
-    public Recipe() {
-    }
+//    public Recipe() {
+//    }
 
     // Initialize the id and value fields.
-    public Recipe(String aTitle, String anAuthor, Integer serves, String servedTo, Integer thePrepTime, Integer theCookTime, String portionSize) {
+    public Recipe(String aTitle, String anAuthor, Integer serves, String servedTo, Integer thePrepTime, Integer theCookTime, String portionSize, String description) {
         super();
         this.title = aTitle;
         this.author = anAuthor;
-        this.serveQty = serves;
-        this.serveQtyType = servedTo;
-        this.prepTime = thePrepTime;
-        this.cookTime = theCookTime;
+        this.serveqty = serves;
+        this.serveqtytype = servedTo;
+        this.preptime = thePrepTime;
+        this.cooktime = theCookTime;
         this.portion = portionSize;
+        this.description = description;
     }
 
     // Getters and setters.
+
     public String getTitle() {
         return title;
     }
@@ -58,36 +61,36 @@ public class Recipe extends AbstractEntity{
         this.author = author;
     }
 
-    public Integer getServeQty() {
-        return serveQty;
+    public Integer getServeqty() {
+        return serveqty;
     }
 
-    public void setServeQty(Integer serveQty) {
-        this.serveQty = serveQty;
+    public void setServeqty(Integer serveqty) {
+        this.serveqty = serveqty;
     }
 
-    public String getServeQtyType() {
-        return serveQtyType;
+    public String getServeqtytype() {
+        return serveqtytype;
     }
 
-    public void setServeQtyType(String serveQtyType) {
-        this.serveQtyType = serveQtyType;
+    public void setServeqtytype(String serveqtytype) {
+        this.serveqtytype = serveqtytype;
     }
 
-    public Integer getPrepTime() {
-        return prepTime;
+    public Integer getPreptime() {
+        return preptime;
     }
 
-    public void setPrepTime(Integer prepTime) {
-        this.prepTime = prepTime;
+    public void setPreptime(Integer preptime) {
+        this.preptime = preptime;
     }
 
-    public Integer getCookTime() {
-        return cookTime;
+    public Integer getCooktime() {
+        return cooktime;
     }
 
-    public void setCookTime(Integer cookTime) {
-        this.cookTime = cookTime;
+    public void setCooktime(Integer cooktime) {
+        this.cooktime = cooktime;
     }
 
     public String getPortion() {
@@ -96,6 +99,14 @@ public class Recipe extends AbstractEntity{
 
     public void setPortion(String portion) {
         this.portion = portion;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     @Override
