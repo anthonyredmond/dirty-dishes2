@@ -94,7 +94,7 @@ public class AuthenticationController {
         return "login";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/login")
     public String loginForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
                                           Errors errors, HttpServletRequest request,
                                           Model model) {
