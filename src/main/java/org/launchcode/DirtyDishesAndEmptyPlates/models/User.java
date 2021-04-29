@@ -7,9 +7,9 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 public class User extends AbstractEntity {
-    @NotNull
+//    @NotNull
     private String username;
-    @NotNull
+//    @NotNull
     private String pwHash;
 
 
