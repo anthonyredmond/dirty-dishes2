@@ -7,26 +7,31 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <p>&nbsp;</p>
     <h2>Dirty Dishes & Empty Plates</h2>
-    I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
-    the appetite, making his guest suffer a voracious need to devour the delicious
-    dishes before them. On this site I will take the users on a journey meant to
-    arouse each of the culinary senses: Aroma, taste, feel, until one can literally
-    hear one&apos;s growling stomach demanding to be satisfied.
-
-    Within also are tools to help those across the full spectrum of from home chef to professional,
-    &quot;What&apos;s a spatula&quot; to &quot;tempering eggs is indeed an art,
-    but an attainable one&quot; achieve dishes that will thrill them through
-    every stage: prep, cooking, and eating; delighting their guests.
-
-    <!--ul>
-        <li th:each="job : ${jobs}">
-            <a th:href="@{'/view/' + ${job.id}}" th:text="${job.name}"></a>
-        </li>
-    </ul-->
+    <p>
+      <a href="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg" target="vanity"><img id="egoImage"
+        src="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg"></a>
+      <img src="/images/voice-prompt.png" onclick="document.getElementBy('audio').play(); return false;"
+               class="voice-prompt">
+      I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
+      the appetite, making his guest suffer a voracious need to devour the delicious
+      dishes before them. On this site I will take the users on a journey meant to
+      arouse each of the culinary senses: Aroma, taste, feel, until one can literally
+      hear one&apos;s growling stomach demanding to be satisfied.
+  
+      Within also are tools to help those across the full spectrum of from home chef to professional,
+      &quot;What&apos;s a spatula&quot; to &quot;tempering eggs is indeed an art,
+      but an attainable one&quot; achieve dishes that will thrill them through
+      every stage: prep, cooking, and eating; delighting their guests.
+    </p>
 
 </div>
 
+<div id="audio-div">
+  <audio id="audio" controls preload="auto">
+    <source src="/media/Dirty-Dishes-and-Empty-Plates-Intro.m4a" type="audio/m4a">
+    Your browser doesn&apos;t support the audio element.
+  </audio>
+</div>
 </body>
 </html>

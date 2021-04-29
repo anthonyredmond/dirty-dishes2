@@ -60,3 +60,20 @@ div.job-listing {
     width: 80%;
     background-color: #e4e4e4;
 }
+
+img#egoImage {
+  float: left;
+  border: none;
+  width: 100px;
+  margin-right:10px;
+}
+
+img.voice-prompt {
+  width:10px;
+}
+
+div#audio-div {
+  position:absolute;
+  bottom:10px;
+  margin:5px;
+}
