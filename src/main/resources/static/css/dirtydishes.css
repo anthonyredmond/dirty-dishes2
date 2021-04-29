@@ -1,12 +1,13 @@
 :root {
 --main-bg-color:#ab81bf;
---main-bg2-color:#16091c;
---main-fg-color:#e858da;
+--main-bg2-color:#e858da;
+--main-fg-color:#16091c;
 }
 
 body {
   background-Color: var(--main-bg-color);
   color:var(--main-fg-color);
+  font-size:x-large;
 }
 
 .body-content {

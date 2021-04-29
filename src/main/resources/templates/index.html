@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width"/>
   <base href="/"/>
   <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/dirtyplates.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/dirtydishes.css"/>
   <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
   <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
@@ -23,22 +23,10 @@
         <img src="/images/voice-prompt-sm.jpg" class="voicePrompt" onclick="document.getElementById('audio').play(); return false;">
 <!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
 <!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
-      <h1 th:text="'Test: ' + (${loggedin}) ? 'Hello, ' + ${user.username} + '!' : 'Hello!'"></h1>
       <div th:if="${loggedin}">
-        <form th:action="@{/logout}" method="post">
-          <input type="submit" value="Sign Out"/>
-        </form>
+        <h1 th:text="'Welcome, ' + ${user.username} + '!'"></h1>
       </div>
-      <div th:if="${!loggedin}">
-        <form th:action="@{/login}" method="post">
-          <input type="submit" value="Log in"/>
-        </form>
-        or
-        <form th:action="@{/register}" method="post">
-          <input type="submit" value="Register"/>
-        </form>
-      </div>
-          <p>
+    <p>
       I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
       the appetite, making his guest suffer a voracious need to devour the delicious
       dishes before them. On this site I will take the users on a journey meant to
@@ -51,6 +39,22 @@
       every stage: prep, cooking, and eating; delighting their guests.
     </p>
 
+</div>
+<div>
+  <div th:if="${loggedin}">
+    <form th:action="@{/logout}" method="post">
+      <input type="submit" value="Sign Out"/>
+    </form>
+  </div>
+  <div th:if="${!loggedin}">
+    <form th:action="@{/login}" method="post">
+      <input type="submit" value="Log in"/>
+    </form>
+    or
+    <form th:action="@{/register}" method="post">
+      <input type="submit" value="Register"/>
+    </form>
+  </div>
 </div>
 
 <div id="audio-div">
