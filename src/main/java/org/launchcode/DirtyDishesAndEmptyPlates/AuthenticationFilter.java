@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Pattern;
 
 public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
@@ -43,6 +44,11 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         }
         return true;
     }
+    private static boolean pathsMatch(String requestedURI, String path) {
+        Pattern pattern = Pattern.compile("^(" + requestedURI + ")$|\1\\\\?");
+        return false;
+    }
+    
     private static boolean isWhitelisted(String path) {
         String pathSlash = path, pathRootSlash;
         if (!path.endsWith("/")) pathSlash = path.concat("/");
@@ -52,7 +58,8 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
             System.out.println("path: " + path + ", " + pathSlash + "\npathRoot: " + pathRoot + ", " + pathRootSlash);
             if (path.equals(pathRoot) ||
                 pathSlash.equals(pathRootSlash) ||
-                ((!path.endsWith("/") && pathRootSlash.startsWith(pathSlash)))) {
+                (!pathRootSlash.equals("/") && (
+                  (!path.endsWith("/") && pathSlash.startsWith(pathRootSlash))))) {
                 System.out.println("whitelisted\n");
                 return true;
             }
