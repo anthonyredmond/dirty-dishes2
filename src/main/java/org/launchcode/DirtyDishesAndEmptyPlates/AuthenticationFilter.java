@@ -1,8 +1,8 @@
 package org.launchcode.DirtyDishesAndEmptyPlates;
 
 import org.launchcode.DirtyDishesAndEmptyPlates.controllers.AuthenticationController;
-import org.launchcode.DirtyDishesAndEmptyPlates.models.User;
 import org.launchcode.DirtyDishesAndEmptyPlates.models.data.UserRepository;
+import org.launchcode.DirtyDishesAndEmptyPlates.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -20,7 +20,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
     @Autowired
     AuthenticationController authenticationController;
-    private static final List<String> whitelist = Arrays.asList("/login", "/register", "/logout", "/css", "/images",
+    private static final List<String> whitelist = Arrays.asList("/", "/login", "/register", "/css", "/images",
       "/recipe");
     @Override
     public boolean preHandle(HttpServletRequest request,
@@ -47,12 +47,5 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
         }
         return false;
     }
-
-
-
-
-
-
-
 
 }

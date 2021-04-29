@@ -1,6 +1,5 @@
 package org.launchcode.DirtyDishesAndEmptyPlates.models.data;
 
-import org.launchcode.DirtyDishesAndEmptyPlates.models.Job;
 import org.launchcode.DirtyDishesAndEmptyPlates.models.Recipe;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
