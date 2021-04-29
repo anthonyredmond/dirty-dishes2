@@ -53,6 +53,11 @@ public class AuthenticationController {
         return "index";
     }
     
+    @RequestMapping("/secure")
+    public String displaySecure(Model model) {
+        return "notavailable";
+    }
+ 
     @GetMapping("/register")
     public String displayRegistrationForm(Model model) {
         model.addAttribute(new RegisterFormDTO());
