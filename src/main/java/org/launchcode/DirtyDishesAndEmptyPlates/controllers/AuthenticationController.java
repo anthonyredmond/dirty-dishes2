@@ -47,19 +47,24 @@ public class AuthenticationController {
     private static void setUserInSession(HttpSession session, User user) {
         session.setAttribute(userSessionKey, user.getId());
     }
+
+    private static void setupCommonAttributes(Model model, Boolean loggedin, User user, String title) {
+        model.addAttribute("loggedin", loggedin);
+        model.addAttribute("user", user);
+        model.addAttribute("title", title);
+    }
     
     @RequestMapping("/")
     public String displayIndex(HttpServletRequest request, Model model) {
         User user = getUserFromSession(request.getSession());
-        Boolean loggedin = false;
-        loggedin = (user != null);
-        model.addAttribute("loggedin", loggedin);
-        model.addAttribute("user", user);
+        setupCommonAttributes(model, (user != null), user, "Home");
         return "index";
     }
     
     @RequestMapping("/secure")
-    public String displaySecure(Model model) {
+    public String displaySecure(HttpServletRequest request, Model model) {
+        User user = getUserFromSession(request.getSession());
+        setupCommonAttributes(model, (user != null), user, "Secure");
         return "notavailable";
     }
     
@@ -108,7 +113,7 @@ public class AuthenticationController {
     @GetMapping("/login")
     public String displayLoginForm(Model model) {
         model.addAttribute(new LoginFormDTO());
-        model.addAttribute("title", "Log In");
+        model.addAttribute("title", "Login");
         return "login";
     }
     
@@ -142,13 +147,23 @@ public class AuthenticationController {
     }
     
     @GetMapping("/recipe/{recipeId}")
-    public String recipe(Model model, @PathVariable int recipeId) {
+    public String recipe(HttpServletRequest request, Model model, @PathVariable int recipeId) {
         Optional optRecipe = recipeRepository.findById(recipeId);
         if (!optRecipe.isEmpty()) {
             Recipe recipe = (Recipe) optRecipe.get();
             model.addAttribute("recipe", recipe);
             return "recipe";
         }
-      return "recipe";}
+        User user = getUserFromSession(request.getSession());
+        setupCommonAttributes(model, (user != null), user, "Recipe");
+        return "recipe";
     }
     
+    @GetMapping("/recipe")
+    public String recipes(HttpServletRequest request, Model model) {
+        User user = getUserFromSession(request.getSession());
+        setupCommonAttributes(model, (user != null), user, "Recipes");
+        return "recipe";
+    }
+}
+

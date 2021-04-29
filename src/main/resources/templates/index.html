@@ -1,19 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
-<head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <title>Dirty Dishes and Empty Plates</title>
-  <meta name="description" content=""/>
-  <meta name="viewport" content="width=device-width"/>
-  <base href="/"/>
-  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/dirtydishes.css"/>
-  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<head th:replace="fragments.html :: head">
+  <title>Welcome</title>
 </head>
-<body>
-
+<body class="container">
+<header th:replace="fragments :: page-header"></header>
   <div class="container body-content">
     <h2>Dirty Dishes & Empty Plates</h2>
     &copy; 2021 by Anthony Kush, all rights reserved.<br /><br />
@@ -32,7 +23,7 @@
         hear one&apos;s growling stomach demanding to be satisfied.
       </p>
       <p>
-        Within also are tools to help those across the full spectrum of from home chef to professional,
+        Within also are tools to help those across the full spectrum from home chef to professional,
         &quot;What&apos;s a spatula&quot; to &quot;tempering eggs is indeed an art,
         but an attainable one&quot; achieve dishes that will thrill them through
         every stage: prep, cooking, and eating; delighting their guests.
@@ -52,7 +43,7 @@
       </form>
     </div>
     <div class="float-left">
-    or
+    &nbsp;or&nbsp;
     </div>
     <div class="float-left">
       <form th:action="@{/register}" method="post">
