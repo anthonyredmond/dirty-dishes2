@@ -16,11 +16,13 @@
 
 <div class="container body-content">
     <h2>Dirty Dishes & Empty Plates</h2>
+    &copy; 2021 by Anthony Kush, all rights reserved.<br /><br />
     <p>
       <a href="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg" target="vanity"><img id="egoImage"
         src="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg"></a>
-      <img src="/images/voice-prompt-sm.jpg" class="voicePrompt"
-           onclick="document.getElementBy('audio').play(); return false;">
+      <button type="button" onclick="document.getElementBy('audio').play(); return false;">
+        <img src="/images/voice-prompt-sm.jpg" class="voicePrompt">
+      </button>
 <!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
 <!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
       <h1 th:text="'Test: ' + (${loggedin}) ? 'Hello, ' + ${user.username} + '!' : 'Hello!'"></h1>
@@ -29,7 +31,16 @@
           <input type="submit" value="Sign Out"/>
         </form>
       </div>
-      <p>
+      <div th:if="${!loggedin}">
+        <form th:action="@{/login}" method="post">
+          <input type="submit" value="Log in"/>
+        </form>
+        or
+        <form th:action="@{/register}" method="post">
+          <input type="submit" value="Register"/>
+        </form>
+      </div>
+          <p>
       I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
       the appetite, making his guest suffer a voracious need to devour the delicious
       dishes before them. On this site I will take the users on a journey meant to

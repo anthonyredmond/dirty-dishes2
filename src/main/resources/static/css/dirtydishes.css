@@ -5,8 +5,8 @@
 }
 
 body {
-  background-Color: var(--main-bg-color:#ab81bf);
-  color:var(--main-fg-color:#e858da);
+  background-Color: var(--main-bg-color);
+  color:var(--main-fg-color);
 }
 
 .body-content {
