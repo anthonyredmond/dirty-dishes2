@@ -20,9 +20,7 @@
     <p>
       <a href="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg" target="vanity"><img id="egoImage"
         src="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg"></a>
-      <button type="button" onclick="document.getElementBy('audio').play(); return false;">
-        <img src="/images/voice-prompt-sm.jpg" class="voicePrompt">
-      </button>
+        <img src="/images/voice-prompt-sm.jpg" class="voicePrompt" onclick="document.getElementById('audio').play(); return false;">
 <!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
 <!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
       <h1 th:text="'Test: ' + (${loggedin}) ? 'Hello, ' + ${user.username} + '!' : 'Hello!'"></h1>
