@@ -51,6 +51,9 @@ public class AuthenticationController {
     @RequestMapping("/")
     public String displayIndex(HttpServletRequest request, Model model) {
         User user = getUserFromSession(request.getSession());
+        Boolean loggedin = false;
+        loggedin = (user != null);
+        model.addAttribute("loggedin", loggedin);
         model.addAttribute("user", user);
         return "index";
     }
@@ -135,7 +138,7 @@ public class AuthenticationController {
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         request.getSession().invalidate();
-        return "redirect:/login";
+        return "redirect:/";
     }
     
     @GetMapping("/recipe/{recipeId}")

@@ -56,12 +56,12 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
             pathRootSlash = pathRoot;
             if (!pathRoot.endsWith("/"))
                 pathRootSlash = pathRoot.concat("/");
-//            System.out.println("path: " + path + ", " + pathSlash + "\npathRoot: " + pathRoot + ", " + pathRootSlash);
+            System.out.println("path: " + path + ", " + pathSlash + "\npathRoot: " + pathRoot + ", " + pathRootSlash);
             if (path.equals(pathRoot) ||
                 pathSlash.equals(pathRootSlash) ||
                 (!pathRootSlash.equals("/") && (
                   (!path.endsWith("/") && pathSlash.startsWith(pathRootSlash))))) {
-//                System.out.println("whitelisted\n");
+                System.out.println("whitelisted\n");
                 return true;
             }
         }

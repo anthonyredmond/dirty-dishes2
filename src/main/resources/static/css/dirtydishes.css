@@ -1,3 +1,14 @@
+:root {
+--main-bg-color:#ab81bf;
+--main-bg2-color:#16091c;
+--main-fg-color:#e858da;
+}
+
+body {
+  background-Color: var(--main-bg-color:#ab81bf);
+  color:var(--main-fg-color:#e858da);
+}
+
 .body-content {
     margin-top: 72px;
 }
@@ -68,8 +79,10 @@ img#egoImage {
   margin-right:10px;
 }
 
-img.voice-prompt {
-  width:10px;
+img.voicePrompt {
+  max-height:20px;
+  max-width:20px;
+  height:20px;
 }
 
 div#audio-div {
