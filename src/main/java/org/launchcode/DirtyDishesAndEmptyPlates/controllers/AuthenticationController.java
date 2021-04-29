@@ -149,6 +149,6 @@ public class AuthenticationController {
             model.addAttribute("recipe", recipe);
             return "recipe";
         }
-      return "recipe";}
+      return "recipe"}
     }
     
