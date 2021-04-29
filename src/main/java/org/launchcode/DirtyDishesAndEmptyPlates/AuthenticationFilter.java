@@ -25,7 +25,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     private static final List<String> whitelist = Arrays.asList("/", "/login", "/register", "/css", "/images", "/js",
       "media");
     @Override
-    public boolean preHandle(HttpServletRequest request,
+    public boolean preHandle(HttpServletRequest request
                              HttpServletResponse response,
                              Object handler) throws IOException {
 
