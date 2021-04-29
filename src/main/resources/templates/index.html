@@ -14,31 +14,30 @@
 </head>
 <body>
 
-<div class="container body-content">
+  <div class="container body-content">
     <h2>Dirty Dishes & Empty Plates</h2>
     &copy; 2021 by Anthony Kush, all rights reserved.<br /><br />
-    <p>
-      <a href="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg" target="vanity"><img id="egoImage"
-        src="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg"></a>
-        <img src="/images/voice-prompt-sm.jpg" class="voicePrompt" onclick="document.getElementById('audio').play(); return false;">
-<!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
-<!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
-      <div th:if="${loggedin}">
-        <h1 th:text="'Welcome, ' + ${user.username} + '!'"></h1>
-      </div>
-    <p>
-      I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
-      the appetite, making his guest suffer a voracious need to devour the delicious
-      dishes before them. On this site I will take the users on a journey meant to
-      arouse each of the culinary senses: Aroma, taste, feel, until one can literally
-      hear one&apos;s growling stomach demanding to be satisfied.
-  
-      Within also are tools to help those across the full spectrum of from home chef to professional,
-      &quot;What&apos;s a spatula&quot; to &quot;tempering eggs is indeed an art,
-      but an attainable one&quot; achieve dishes that will thrill them through
-      every stage: prep, cooking, and eating; delighting their guests.
-    </p>
-
+    <div th:if="${loggedin}">
+      <h1 th:text="'Welcome, ' + ${user.username} + '!'"></h1>
+    </div>
+    <div>
+      <p>
+        <a href="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg" target="vanity"><img id="egoImage"
+          src="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg"></a>
+          <img src="/images/voice-prompt-sm.jpg" class="voicePrompt" onclick="document.getElementById('audio').play(); return false;">
+        I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
+        the appetite, making his guest suffer a voracious need to devour the delicious
+        dishes before them. On this site I will take the users on a journey meant to
+        arouse each of the culinary senses: Aroma, taste, feel, until one can literally
+        hear one&apos;s growling stomach demanding to be satisfied.
+      </p>
+      <p>
+        Within also are tools to help those across the full spectrum of from home chef to professional,
+        &quot;What&apos;s a spatula&quot; to &quot;tempering eggs is indeed an art,
+        but an attainable one&quot; achieve dishes that will thrill them through
+        every stage: prep, cooking, and eating; delighting their guests.
+      </p>
+    </div>
 </div>
 <div>
   <div th:if="${loggedin}">
@@ -47,22 +46,27 @@
     </form>
   </div>
   <div th:if="${!loggedin}">
-    <form th:action="@{/login}" method="post">
-      <input type="submit" value="Log in"/>
-    </form>
+    <div class="float-left">
+      <form th:action="@{/login}" method="post">
+        <input type="submit" value="Log in"/>
+      </form>
+    </div>
+    <div class="float-left">
     or
-    <form th:action="@{/register}" method="post">
-      <input type="submit" value="Register"/>
-    </form>
+    </div>
+    <div class="float-left">
+      <form th:action="@{/register}" method="post">
+        <input type="submit" value="Register"/>
+      </form>
+    </div>
   </div>
-</div>
-
-<div id="audio-div">
-  <audio id="audio" controls preload="auto">
-    <source src="/media/Dirty-Dishes-and-Empty-Plates-0002.m4a" type="audio/m4a">
-    <source src="/media/Dirty-Dishes-and-Empty-Plates-0002.m4a" type="audio/mpeg">
-    Your browser doesn&apos;t support the audio element.
-  </audio>
+  <div id="audio-div">
+    <audio id="audio" controls preload="auto">
+      <source src="/media/Dirty-Dishes-and-Empty-Plates-0002.m4a" type="audio/m4a">
+      <source src="/media/Dirty-Dishes-and-Empty-Plates-0002.m4a" type="audio/mpeg">
+      Your browser doesn&apos;t support the audio element.
+    </audio>
+  </div>
 </div>
 </body>
 </html>

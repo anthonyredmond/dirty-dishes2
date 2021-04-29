@@ -23,7 +23,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     AuthenticationController authenticationController;
     
     private static final List<String> whitelist = Arrays.asList("/", "/login", "/register", "/css", "/images", "/js",
-      "media");
+      "/media");
     @Override
     public boolean preHandle(HttpServletRequest request,
                              HttpServletResponse response,
