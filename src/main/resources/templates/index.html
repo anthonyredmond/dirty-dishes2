@@ -1,6 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <title>Dirty Dishes and Empty Plates</title>
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width"/>
+  <base href="/"/>
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 
@@ -13,6 +22,11 @@
         src="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg"></a>
       <img src="/images/voice-prompt.png" onclick="document.getElementBy('audio').play(); return false;"
                class="voice-prompt">
+      <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+      <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out"/>
+      </form>
+  
       I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
       the appetite, making his guest suffer a voracious need to devour the delicious
       dishes before them. On this site I will take the users on a journey meant to

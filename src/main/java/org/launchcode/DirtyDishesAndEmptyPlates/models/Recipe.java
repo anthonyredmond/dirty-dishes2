@@ -19,8 +19,8 @@ public class Recipe extends AbstractEntity{
     private String portion;
     private String description;
 
-//    public Recipe() {
-//    }
+    public Recipe() {
+    }
 
     // Initialize the id and value fields.
     public Recipe(String aTitle, String anAuthor, Integer serves, String servedTo, Integer thePrepTime, Integer theCookTime, String portionSize, String description) {
