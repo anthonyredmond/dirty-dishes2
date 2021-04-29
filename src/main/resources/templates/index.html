@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
   <meta charset="utf-8"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -21,11 +21,13 @@
         src="/images/Your-Chef-Anthony-Redmond-In-Blue.jpg"></a>
       <img src="/images/voice-prompt.png" onclick="document.getElementBy('audio').play(); return false;"
                class="voice-prompt">
-      <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+<!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
+<!--      <h1 th:inline="text">Hello [[${user.isEmpty()}?', '+ ${user.name}:''"}]]!</h1>-->
+      <h1 th:text="(${user} != null) ? 'Hello, ' + ${user.username} + '!' : 'Hello!'"></h1>
       <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sign Out"/>
       </form>
-  
+      <p>
       I&apos;m Executive Chef Anthony Redmond. I enjoy teasing the senses to enrage
       the appetite, making his guest suffer a voracious need to devour the delicious
       dishes before them. On this site I will take the users on a journey meant to
@@ -43,6 +45,7 @@
 <div id="audio-div">
   <audio id="audio" controls preload="auto">
     <source src="/media/Dirty-Dishes-and-Empty-Plates-Intro.m4a" type="audio/m4a">
+    <source src="/media/Dirty-Dishes-and-Empty-Plates-Intro.m4a" type="audio/mpeg">
     Your browser doesn&apos;t support the audio element.
   </audio>
 </div>

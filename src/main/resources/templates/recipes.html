@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org/">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="fragments :: head">
 </head>
 <body>
@@ -11,7 +11,7 @@
       <li th:each="recipe : ${recipe}">
           <a th:href="@{'/recipe/' + ${recipe.id}}" th:text="${recipe.title}"></a>
       </li>
-  </ul-->
+  </ul>
 
 </div>
 

@@ -20,7 +20,7 @@ import java.util.Optional;
 @Controller
 public class AuthenticationController {
     @Autowired
-    UserRepository userRepository;
+    private UserRepository userRepository;
     
     @Autowired
     private RecipeRepository recipeRepository;
@@ -49,7 +49,9 @@ public class AuthenticationController {
     }
     
     @RequestMapping("/")
-    public String displayIndex(Model model) {
+    public String displayIndex(HttpServletRequest request, Model model) {
+        User user = getUserFromSession(request.getSession());
+        model.addAttribute("user", user);
         return "index";
     }
     
@@ -57,32 +59,32 @@ public class AuthenticationController {
     public String displaySecure(Model model) {
         return "notavailable";
     }
- 
+    
     @GetMapping("/register")
     public String displayRegistrationForm(Model model) {
         model.addAttribute(new RegisterFormDTO());
         model.addAttribute("title", "Register");
         return "register";
     }
-
+    
     @PostMapping("/register")
     public String processRegistrationForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
                                           Errors errors, HttpServletRequest request,
                                           Model model) {
-
+        
         if (errors.hasErrors()) {
             model.addAttribute("title", "Register");
             return "register";
         }
-
+        
         User existingUser = userRepository.findByUsername(registerFormDTO.getUsername());
-
+        
         if (existingUser != null) {
             errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
             model.addAttribute("title", "Register");
             return "register";
         }
-
+        
         String password = registerFormDTO.getPassword();
         String verifyPassword = registerFormDTO.getVerifyPassword();
         if (!password.equals(verifyPassword)) {
@@ -90,81 +92,60 @@ public class AuthenticationController {
             model.addAttribute("title", "Register");
             return "register";
         }
-
+        
         User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
-
+        
         return "redirect:";
-
-
+        
+        
     }
-
+    
     @GetMapping("/login")
     public String displayLoginForm(Model model) {
         model.addAttribute(new LoginFormDTO());
         model.addAttribute("title", "Log In");
         return "login";
     }
-
+    
     @PostMapping("/login")
-    public String loginForm(@ModelAttribute @Valid RegisterFormDTO registerFormDTO,
-                                          Errors errors, HttpServletRequest request,
-                                          Model model) {
-
+    public String processLoginForm(@ModelAttribute @Valid LoginFormDTO loginFormDTO,
+                            Errors errors, HttpServletRequest request,
+                            Model model) {
+        
         if (errors.hasErrors()) {
-            model.addAttribute("title", "Register");
-            return "register";
+            model.addAttribute("title", "Login");
+            return "login";
         }
-
-        User existingUser = userRepository.findByUsername(registerFormDTO.getUsername());
-
+        
+        User existingUser = userRepository.findByUsername(loginFormDTO.getUsername());
+        
         if (existingUser != null) {
-            errors.rejectValue("username", "username.alreadyexists", "A user with that username already exists");
-            model.addAttribute("title", "Register");
-            return "register";
+            String password = loginFormDTO.getPassword();
+            if (existingUser.isMatchingPassword(password)) {
+                setUserInSession(request.getSession(), existingUser);
+                return "redirect:";
+            }
         }
-
-        String password = registerFormDTO.getPassword();
-        String verifyPassword = registerFormDTO.getVerifyPassword();
-        if (!password.equals(verifyPassword)) {
-            errors.rejectValue("password", "passwords.mismatch", "Passwords do not match");
-            model.addAttribute("title", "Register");
-            return "register";
-        }
-
-        User newUser = new User(registerFormDTO.getUsername(), registerFormDTO.getPassword());
-        userRepository.save(newUser);
-        setUserInSession(request.getSession(), newUser);
-
-        return "redirect:";
-
-
+        
+        return "login";
     }
+    
     @GetMapping("/logout")
     public String logout(HttpServletRequest request){
         request.getSession().invalidate();
         return "redirect:/login";
     }
     
-    
-    @RequestMapping("/recipe")
-    public String displayRecipe(Model model) {
-        return "recipes";
-    }
-    
-    @RequestMapping("/recipe/{recipeId}")
-    public String displayRecipe(Model model, @PathVariable int recipeId) {
-        
+    @GetMapping("/recipe/{recipeId}")
+    public String recipe(Model model, @PathVariable int recipeId) {
         Optional optRecipe = recipeRepository.findById(recipeId);
         if (!optRecipe.isEmpty()) {
             Recipe recipe = (Recipe) optRecipe.get();
             model.addAttribute("recipe", recipe);
             return "recipe";
-        } else {
-            return "redirect:/recipe";
         }
+      return "recipe";}
     }
-
-
-}
+    
