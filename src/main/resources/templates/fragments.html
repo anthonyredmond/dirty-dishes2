@@ -5,10 +5,10 @@
 
     <!-- Bootstrap stylesheets and script -->
     <link th:href="@{/css/bootstrap.css}" rel="stylesheet" />
-    <link th:href="@{/css/dirtydishes.css}" rel="stylesheet" />
+    <link th:href="@{/css/techjobs.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/js/bootstrap.js}"></script>
 
-    <title th:text="'DirtyDishes' + ${title == null ? '' : ' :: ' + title}">DirtyDishes</title>
+    <title th:text="'TechJobs' + ${title == null ? '' : ' :: ' + title}">Dirty Dishes &amp; Empty Plates</title>
 </head>
 
 <body>
@@ -16,14 +16,13 @@
 <div th:fragment="page-header" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container">
         <div class="navbar-header">
-            <a th:href="@{/}" class="navbar-brand">DirtyDishes</a>
+            <a th:href="@{/}" class="navbar-brand">Dirty Dishes &amp; Empty Plates</a>
         </div>
-        <!--div class="navbar-collapse collapse">
+        <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li><a th:href="@{/add}">Add Jobs</a></li>
                 <li><a th:href="@{/logout}">Logout</a></li>
             </ul>
-        </div-->
+        </div>
     </div>
 </div>
 
