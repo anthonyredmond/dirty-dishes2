@@ -24,12 +24,12 @@ public class HomeController {
         return "index";
     }
 
-    @RequestMapping("recipe")
+    @RequestMapping("/recipe")
     public String displayRecipe(Model model) {
         return "recipes";
     }
 
-    @RequestMapping("recipe/{recipeId}")
+    @RequestMapping("/recipe/{recipeId}")
     public String displayRecipe(Model model, @PathVariable int recipeId) {
 
         Optional optRecipe = recipeRepository.findById(recipeId);
@@ -38,7 +38,7 @@ public class HomeController {
             model.addAttribute("recipe", recipe);
             return "recipe";
         } else {
-            return "redirect:recipe";
+            return "redirect:/recipe";
         }
     }
 
