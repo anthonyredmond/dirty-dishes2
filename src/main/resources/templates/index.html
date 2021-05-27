@@ -40,43 +40,6 @@
       <h2><a href="/recipe/">Recipes</a></h2>
       Just a taste, or an appetizer if you will. You must be logged in to access our full catalogue, and the
       complete listing of each recipe.
-      <table class="recipeList brief">
-        <caption>Just a taste, or an appetizer if you will. You must be logged in to access our full catalogue, and the
-          complete listing of each recipe.</caption>
-        <thead>
-          <tr th:class="header">
-            <th th:class="image">Teaser</th>
-            <th th:class="recipe">Recipe</th>
-            <th th:class="author">Author</th>
-            <th th:class="version">Ver</th>
-            <th th:class="serves">Srv</th>
-            <th th:class="preptime">Prep</th>
-            <th th:class="cooktime">Cook</th>
-            <th th:class="portion">Size</th>
-          </tr>
-        </thead>
-        <tbody th:each="recipe: ${recipes}" th:class="${recipeStat.odd}?'odd':'even'">
-          <tr>
-            <td th:class="image" rowspan="2"
-                th:switch="${recipe.image == null || recipe.image.length() == 0 || recipe.image.isEmpty()}">
-              <img th:case="true" th:src="/images/empty-plate.png">
-              <img th:case="*" th:src="${recipe.image}">
-            </td>
-            <td th:class="recipe">
-              <a th:href="@{'/recipe/' + ${recipe.id}}" th:text="${recipe.title}"></a>
-            </td>
-            <td th:class="author" th:text="${recipe.author}"></td>
-            <td th:class="version" th:text="${recipe.version}"></td>
-            <td th:class="serves" th:text="${recipe.servesCompressed()}"></td>
-            <td th:class="preptime" th:text="${recipe.preptimeFmt()}"></td>
-            <td th:class="cooktime" th:text="${recipe.cooktimeFmt()}"></td>
-            <td th:class="portion" th:text="${recipe.portion}"></td>
-          </tr>
-          <tr th:class="description">
-            <td th:class="description" th:text="${recipe.description}" colspan="7"></td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </div>
   <div>

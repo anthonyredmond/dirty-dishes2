@@ -153,6 +153,7 @@ public class AuthenticationController {
     @GetMapping("/recipe")
     public String recipes(HttpServletRequest request, Model model) {
         User user = getUserFromSession(request.getSession());
+        model.addAttribute("recipes", recipeRepository.findByFeatured(true));
         setupCommonAttributes(model, user, "Recipes");
         return "recipe";
     }

@@ -190,3 +190,8 @@ div.float-left {
   float:left;
   display:inline;
 }
+
+div.float-right {
+  float:right;
+  display:inline;
+}

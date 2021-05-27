@@ -7,35 +7,39 @@
 <header th:replace="fragments :: page-header"></header>
 
 <div class="container body-content">
-  <h1 th:text="${'Recipe: ' + recipe.title}">Default Title</h1>
+  
+  <h1 th:text="${title}">Default Title</h1>
 
-  <nav th:replace="fragments :: page-header"></nav>
+  <div th:switch="${recipe != null}">
+    <div th:case="true" th:class="recipe-listing">
+      <table class="recipe-listing">
+        <tr>
+          <td th:class="image" rowspan="2"
+              th:switch="${recipe.image == null || recipe.image.length() == 0 || recipe.image.isEmpty()}">
+            <img th:case="true" th:src="/images/empty-plate.png">
+            <a th:case="*" th:href="${recipe.image}" target="recipeImages">
+              <img th:src="${recipe.image}">
+            </a>
+          </td>
+          <td th:class="id" th:text="${'ID: ' + recipe.id}">id</td>
+          <td th:class="title" th:text="${'Title: ' + recipe.title}">title</td>
+          <td th:class="author" th:text="${'Author: ' + recipe.author}">author</td>
+        </tr>
+        <tr>
+          <td th:class="preptime" th:text="${'Prep: ' + recipe.preptimeFmt()}">prep time</td>
+          <td th:class="cooktime" th:text="${'Cook: ' + recipe.cooktimeFmt()}">cook time</td>
+          <td th:class="serves" th:text="${'Serves: ' + recipe.serves()}">serves</td>
+        </tr>
+        <tr>
+          <td th:class="description" colspan=4 th:text="${'Description: ' + recipe.description}">description</td>
+        </tr>
+      </table>
+    </div>
+    <div th:case="*" th:class="recipe-listing">
+      <recipes th:replace="fragments :: recipe-list"></recipes>
+    </div>
 
-  <div class="recipe-listing">
-    <table class="recipe-listing">
-      <tr>
-        <td th:class="image" rowspan="2"
-            th:switch="${recipe.image == null || recipe.image.length() == 0 || recipe.image.isEmpty()}">
-          <img th:case="true" th:src="/images/empty-plate.png">
-          <a th:case="*" th:href="${recipe.image}" target="recipeImages">
-            <img th:src="${recipe.image}">
-          </a>
-        </td>
-        <td th:class="id" th:text="${'ID: ' + recipe.id}">id</td>
-        <td th:class="title" th:text="${'Title: ' + recipe.title}">title</td>
-        <td th:class="author" th:text="${'Author: ' + recipe.author}">author</td>
-      </tr>
-      <tr>
-        <td th:class="preptime" th:text="${'Prep: ' + recipe.preptimeFmt()}">prep time</td>
-        <td th:class="cooktime" th:text="${'Cook: ' + recipe.cooktimeFmt()}">cook time</td>
-        <td th:class="serves" th:text="${'Serves: ' + recipe.serves()}">serves</td>
-      </tr>
-      <tr>
-        <td th:class="description" colspan=4 th:text="${'Description: ' + recipe.description}">description</td>
-      </tr>
-    </table>
   </div>
-
 </div>
 
 </body>
