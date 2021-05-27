@@ -18,21 +18,28 @@ public class Recipe extends AbstractEntity{
     private Integer cooktime;
     private String portion;
     private String description;
-
+    private String descriptionbrief;
+    private boolean featured;
+    @Size(min=3, max=164)
+    private String image;
+    
     public Recipe() {
     }
 
     // Initialize the id and value fields.
-    public Recipe(String aTitle, String anAuthor, Integer serves, String servedTo, Integer thePrepTime, Integer theCookTime, String portionSize, String description) {
+    public Recipe(String aTitle, String anAuthor, Integer serves, String servedTo, Integer thePrepTime,
+                  Integer theCookTime, String portionSize, String description, String briefdescription) {
         super();
         this.title = aTitle;
         this.author = anAuthor;
+        this.description = description;
         this.serveqty = serves;
         this.serveqtytype = servedTo;
         this.preptime = thePrepTime;
         this.cooktime = theCookTime;
         this.portion = portionSize;
         this.description = description;
+        this.descriptionbrief = descriptionbrief;
     }
 
     // Getters and setters.
@@ -76,9 +83,29 @@ public class Recipe extends AbstractEntity{
     public void setServeqtytype(String serveqtytype) {
         this.serveqtytype = serveqtytype;
     }
-
+    
+    public String serves() {
+        return serveqty + " " + serveqtytype;
+    }
+    
+    public String servesCompressed() {
+        return serveqty + serveqtytype.substring(0, 1);
+    }
+    
     public Integer getPreptime() {
         return preptime;
+    }
+    
+    private String fmtTime(int minutes) {
+        int hrs, min;
+        final int minPerHour = 60;
+        hrs = minutes / minPerHour;
+        min = minutes - (hrs * minPerHour);
+        return String.format("%02d", hrs) + ":" + String.format("%02d", min);
+    }
+    
+    public String preptimeFmt() {
+        return fmtTime(preptime);
     }
 
     public void setPreptime(Integer preptime) {
@@ -96,7 +123,11 @@ public class Recipe extends AbstractEntity{
     public String getPortion() {
         return portion;
     }
-
+    
+    public String cooktimeFmt() {
+        return fmtTime(cooktime);
+    }
+    
     public void setPortion(String portion) {
         this.portion = portion;
     }
@@ -108,7 +139,31 @@ public class Recipe extends AbstractEntity{
     public void setDescription(String description) {
         this.description = description;
     }
-
+    
+    public String getDescriptionbrief() {
+        return descriptionbrief;
+    }
+    
+    public void setDescriptionbrief(String descriptionbrief) {
+        this.descriptionbrief = descriptionbrief;
+    }
+    
+    public boolean isFeatured() {
+        return featured;
+    }
+    
+    public void setFeatured(boolean featured) {
+        this.featured = featured;
+    }
+    
+    public String getImage() {
+        return image;
+    }
+    
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
     @Override
     public String toString() {
         return title;

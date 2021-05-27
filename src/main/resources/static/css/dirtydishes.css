@@ -86,10 +86,104 @@ img.voicePrompt {
   height:20px;
 }
 
+table.recipeList.recipe-listing tr th, table.recipeList.recipe-listing tr td {
+  font-size:large;
+  font-weight:normal;
+}
+
+table.recipeList.recipe-listing tr th.image, table.recipeList.recipe-listing tr td.image {
+  max-width:100px;
+  max-height:100px;
+}
+
+table.recipeList.recipe-listing tr th.title, table.recipeList.recipe-listing tr td.title {
+  width: 290px;
+}
+
+table.recipeList.recipe-listing tr th.author, table.recipeList.recipe-listing tr td.author {
+  width: 170px;
+}
+
+table.recipeList.recipe-listing tr th.version, table.recipeList.recipe-listing tr td.version {
+  width: 34px;
+}
+
+table.recipeList.recipe-listing tr th.serves, table.recipeList.recipe-listing tr td.serves {
+  width: 28px;
+
+}
+
+table.recipeList.recipe-listing tr th.preptime, table.recipeList.recipe-listing tr td.preptime {
+  width: 49px;
+}
+
+table.recipeList.recipe-listing tr th.cooktime, table.recipeList.recipe-listing tr td.cooktime {
+  width: 49px;
+}
+
+table.recipeList.recipe-listing tr th.portion, table.recipeList.recipe-listing tr td.portion {
+  width: 34px;
+}
+
+table.recipeList.recipe-listing tr th.description, table.recipeList.recipe-listing tr td.description {
+  width:100%
+}
+
+table.recipeList.brief thead tr.header th, table.recipeList.brief tbody tr td {
+  font-size:large;
+  font-weight:normal;
+}
+
+table.recipeList.brief thead tr.header th.image,table.recipeList.brief tbody tr td.image,table.recipe-listing td.image
+{
+  width:104px;
+}
+
+table.recipeList.brief tbody tr td.image,table.recipe-listing td.image {
+  height:104px;
+}
+
+table.recipeList.brief thead tr.header th.image img, table.recipeList.brief tbody tr td.image img,table.recipe-listing
+td.image img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+table.recipeList.brief thead tr.header th.title, table.recipeList.brief tbody tr td.title {
+  width: 290px;
+}
+
+table.recipeList.brief thead tr.header th.author, table.recipeList.brief tbody tr td.author {
+  width: 170px;
+}
+
+table.recipeList.brief thead tr.header th.version, table.recipeList.brief tbody tr td.version {
+  width: 34px;
+}
+
+table.recipeList.brief thead tr.header th.serves, table.recipeList.brief tbody tr td.serves {
+  width: 28px;
+}
+
+table.recipeList.brief thead tr.header th.preptime, table.recipeList.brief tbody tr td.preptime {
+  width: 49px;
+}
+
+table.recipeList.brief thead tr.header th.cooktime, table.recipeList.brief tbody tr td.cooktime {
+  width: 49px;
+}
+
+table.recipeList.brief thead tr.header th.portion, table.recipeList.brief tbody tr td.portion {
+  width: 34px;
+}
+
+table.recipeList.brief thead tr.header th.description, table.recipeList.brief tbody tr td.description {
+  width:100%
+}
+
 div#audio-div {
-  position:absolute;
-  bottom:10px;
-  margin:5px;
+  left: 2-px;
+  margin: 5px;
 }
 
 div.float-left {

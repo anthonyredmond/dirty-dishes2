@@ -32,15 +32,11 @@ public class AuthenticationController {
         if (userId == null) {
             return null;
         }
-
         Optional<User> user = userRepository.findById(userId);
 
         if (user.isEmpty()) {
-
-
             return null;
         }
-
         return user.get();
     }
 
@@ -48,24 +44,19 @@ public class AuthenticationController {
         session.setAttribute(userSessionKey, user.getId());
     }
 
-    private static void setupCommonAttributes(Model model, Boolean loggedin, User user, String title) {
+    private static void setupCommonAttributes(Model model, User user, String title) {
+        Boolean loggedin = (user != null && !user.getClass().equals("mnewbold.NatureHab.models.GuestUser"));
         model.addAttribute("loggedin", loggedin);
         model.addAttribute("user", user);
         model.addAttribute("title", title);
     }
     
-    @RequestMapping("/")
+    @RequestMapping("")
     public String displayIndex(HttpServletRequest request, Model model) {
         User user = getUserFromSession(request.getSession());
-        setupCommonAttributes(model, (user != null), user, "Home");
+        model.addAttribute("recipes", recipeRepository.findByFeatured(true));
+        setupCommonAttributes(model, user, "Home");
         return "index";
-    }
-    
-    @RequestMapping("/secure")
-    public String displaySecure(HttpServletRequest request, Model model) {
-        User user = getUserFromSession(request.getSession());
-        setupCommonAttributes(model, (user != null), user, "Secure");
-        return "notavailable";
     }
     
     @GetMapping("/register")
@@ -155,14 +146,14 @@ public class AuthenticationController {
             return "recipe";
         }
         User user = getUserFromSession(request.getSession());
-        setupCommonAttributes(model, (user != null), user, "Recipe");
+        setupCommonAttributes(model, user, "Recipe");
         return "recipe";
     }
     
     @GetMapping("/recipe")
     public String recipes(HttpServletRequest request, Model model) {
         User user = getUserFromSession(request.getSession());
-        setupCommonAttributes(model, (user != null), user, "Recipes");
+        setupCommonAttributes(model, user, "Recipes");
         return "recipe";
     }
 }
