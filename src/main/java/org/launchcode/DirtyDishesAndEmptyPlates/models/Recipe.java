@@ -46,7 +46,9 @@ public class Recipe extends AbstractEntity{
     // Getters and setters.
 
     public String getTitle() {
-        return title;
+        if (title != null) {
+            return title;
+        } else return "";
     }
 
     public void setTitle(String title) {
@@ -62,7 +64,10 @@ public class Recipe extends AbstractEntity{
     }
 
     public String getAuthor() {
-        return author;
+        if (author != null) {
+            return author;
+        } else
+            return "";
     }
 
     public void setAuthor(String author) {
@@ -86,11 +91,23 @@ public class Recipe extends AbstractEntity{
     }
     
     public String serves() {
-        return serveqty + " " + serveqtytype;
+        if (serveqty != null) {
+            String out = String.valueOf(this.serveqty);
+            if (serveqtytype != null)
+                out += " " + serveqtytype;
+            return out;
+        } else
+            return "";
     }
     
     public String servesCompressed() {
-        return serveqty + serveqtytype.substring(0, 1);
+        if (serveqty != null) {
+            String out = String.valueOf(this.serveqty);
+            if (serveqtytype != null)
+                out += " " + serveqtytype.substring(0,1);
+            return out;
+        } else
+            return "";
     }
     
     public Integer getPreptime() {
@@ -106,7 +123,10 @@ public class Recipe extends AbstractEntity{
     }
     
     public String preptimeFmt() {
-        return fmtTime(preptime);
+        if (preptime != null) {
+            return fmtTime(preptime);
+        } else
+            return "";
     }
 
     public void setPreptime(Integer preptime) {
@@ -120,13 +140,16 @@ public class Recipe extends AbstractEntity{
     public void setCooktime(Integer cooktime) {
         this.cooktime = cooktime;
     }
-
-    public String getPortion() {
-        return portion;
-    }
     
     public String cooktimeFmt() {
-        return fmtTime(cooktime);
+        if (cooktime != null) {
+            return fmtTime(cooktime);
+        } else
+            return "";
+    }
+    
+    public String getPortion() {
+        return portion;
     }
     
     public void setPortion(String portion) {
