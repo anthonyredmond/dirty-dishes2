@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head th:replace="fragments.html :: head">
+  <title>Logout</title>
+</head>
+<body class="container">
+<header th:replace="fragments :: page-header"></header>
+<div>
+  Thank you for visiting. Come back soon!
+  <div th:if="${request.getSession().invalidate(); true}">
+    You have been logged out.
+  </div>
+</div>
+</body>
+</html>

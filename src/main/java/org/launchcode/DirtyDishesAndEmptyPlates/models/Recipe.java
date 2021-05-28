@@ -22,6 +22,7 @@ public class Recipe extends AbstractEntity{
     private boolean featured;
     @Size(min=3, max=164)
     private String image;
+    private String instructions;
     
     public Recipe() {
     }
@@ -162,6 +163,25 @@ public class Recipe extends AbstractEntity{
     
     public void setImage(String image) {
         this.image = image;
+    }
+    
+    public String getInstructions() {
+        if (instructions == null || instructions.length() == 0) {
+            return "";
+        } else
+            return instructions;
+    }
+    
+    public String toHTML(String text) {
+        return text.replaceAll("\\n", "<br />\n");
+    }
+    
+    public String instructionsHTML() {
+        return toHTML(getInstructions());
+    }
+    
+    public void setInstructions(String instructions) {
+        this.instructions = instructions;
     }
     
     @Override

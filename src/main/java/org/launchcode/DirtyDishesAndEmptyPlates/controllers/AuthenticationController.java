@@ -131,10 +131,12 @@ public class AuthenticationController {
         return "login";
     }
     
+
     @GetMapping("/logout")
-    public String logout(HttpServletRequest request){
-        request.getSession().invalidate();
-        return "redirect:/";
+    public String logout(Model model, HttpServletRequest request){
+        User user = getUserFromSession(request.getSession());
+        setupCommonAttributes(model, user, "Logout");
+        return "logout";
     }
     
     @GetMapping("/recipe/{recipeId}")
@@ -157,5 +159,7 @@ public class AuthenticationController {
         setupCommonAttributes(model, user, "Recipes");
         return "recipe";
     }
+
+
 }
 

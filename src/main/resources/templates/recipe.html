@@ -33,6 +33,9 @@
         <tr>
           <td th:class="description" colspan=4 th:text="${'Description: ' + recipe.description}">description</td>
         </tr>
+        <tr>
+          <td th:class="instructions" colspan=4 th:utext="${recipe.instructionsHTML()}">instructions</td>
+        </tr>
       </table>
     </div>
     <div th:case="*" th:class="recipe-listing">
