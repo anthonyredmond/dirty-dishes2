@@ -27,6 +27,9 @@ public class AuthenticationController {
     
     private static final String userSessionKey = "user";
 
+    public boolean loggerOuter(User user) {
+        return true;
+    }
     public User getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
         if (userId == null) {
@@ -131,11 +134,22 @@ public class AuthenticationController {
         return "login";
     }
     
+    
+    @PostMapping("/logout")
+    public String logoutPost(Model model, HttpServletRequest request){
+        User user = getUserFromSession(request.getSession());
+        String username = user.getUsername();
+        model.addAttribute("username", username);
+        request.getSession().invalidate();
+        return "logout";
+    }
 
     @GetMapping("/logout")
     public String logout(Model model, HttpServletRequest request){
         User user = getUserFromSession(request.getSession());
-        setupCommonAttributes(model, user, "Logout");
+        String username = user.getUsername();
+        model.addAttribute("username", username);
+        request.getSession().invalidate();
         return "logout";
     }
     
