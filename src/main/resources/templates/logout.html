@@ -7,8 +7,7 @@
 <body class="container">
 <header th:replace="fragments :: page-header"></header>
 <div>
-  <p>Thank you for visiting<span th:if="username != null && username.length() != 0}" th:class="user"
-                                 th:text=", ${username}"></span>.</p>
+  <p>Thank you for visiting<span th:class="user" th:text="', ' + ${username}"></span>.</p>
   <p>Come back soon!</p>
   
   <p>You have been logged out.</p>

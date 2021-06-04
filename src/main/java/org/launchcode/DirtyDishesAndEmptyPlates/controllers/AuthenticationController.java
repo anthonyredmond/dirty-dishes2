@@ -142,18 +142,28 @@ public class AuthenticationController {
     @PostMapping("/logout")
     public String logoutPost(Model model, HttpServletRequest request){
         User user = getUserFromSession(request.getSession());
-        String username = user.getUsername();
+        String username;
+        if (user == null) {
+            username = guestUser.getUsername();
+        } else
+            username = user.getUsername();
         model.addAttribute("username", username);
-        request.getSession().invalidate();
+        if (user != null)
+            request.getSession().invalidate();
         return "logout";
     }
 
     @GetMapping("/logout")
     public String logout(Model model, HttpServletRequest request){
         User user = getUserFromSession(request.getSession());
-        String username = user.getUsername();
+        String username;
+        if (user == null) {
+            username = guestUser.getUsername();
+        } else
+            username = user.getUsername();
         model.addAttribute("username", username);
-        request.getSession().invalidate();
+        if (user != null)
+            request.getSession().invalidate();
         return "logout";
     }
     
