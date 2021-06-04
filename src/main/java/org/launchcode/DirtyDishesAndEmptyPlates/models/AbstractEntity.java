@@ -1,15 +1,13 @@
 package org.launchcode.DirtyDishesAndEmptyPlates.models;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.Objects;
 
 @MappedSuperclass
 public abstract class AbstractEntity {
-
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", updatable = false, nullable = false)
     private int id;
 
     public int getId() {

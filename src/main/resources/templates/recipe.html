@@ -14,9 +14,7 @@
     <div th:case="true" th:class="recipe-listing">
       <table class="recipe-listing">
         <tr>
-          <td th:class="image" rowspan="2"
-              th:switch="${recipe.image == null || recipe.image.length() == 0 || recipe.image.isEmpty()}">
-            <img th:case="true" th:src="/images/empty-plate.png">
+          <td th:class="image" rowspan="2">
             <a th:case="*" th:href="${recipe.image}" target="recipeImages">
               <img th:src="${recipe.image}">
             </a>

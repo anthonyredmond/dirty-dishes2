@@ -46,10 +46,8 @@
     </thead>
     <tbody th:each="recipe: ${recipes}" th:class="${recipeStat.odd}?'odd':'even'">
     <tr>
-      <td th:class="image" rowspan="2"
-          th:switch="${recipe.image == null || recipe.image.length() == 0 || recipe.image.isEmpty()}">
-        <img th:case="true" th:src="/images/empty-plate.png">
-        <img th:case="*" th:src="${recipe.image}">
+      <td th:class="image" rowspan="2">
+        <img th:src="${recipe.image}">
       </td>
       <td th:class="recipe">
         <a th:href="@{'/recipe/' + ${recipe.id}}" th:text="${recipe.title}"></a>

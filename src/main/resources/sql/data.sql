@@ -1,0 +1,60 @@
+--use dirtydishes;
+--
+----
+---- Dumping data for table `user`
+----
+--
+--LOCK TABLES `user` WRITE;
+--/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+--INSERT INTO `user` VALUES
+--(1,'$2a$10$GPM8yTc3zbvbwyqJUS4swOBtr01FSdJm1Nrn50Pq6nawJ/WHURUOO','aredmond','owner',NULL,
+--NULL,NULL,NULL,NULL,NULL,NULL),
+--(2,'$2a$10$UI/rdKK7i/vbbkMIA1h5LOLNlZSxCPCTLpwRIETpgvD5GKFsR3.um','mox','owner',NULL,
+--NULL,NULL,NULL,NULL,NULL,NULL),
+--(3,'$2a$10$GPM8yTc3zbvbwyqJUS4swOBtr01FSdJm1Nrn50Pq6nawJ/WHURUOO','jermaine','owner',
+--NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+--/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+--UNLOCK TABLES;
+--/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+--
+--
+----
+---- Dumping data for table `ingredient`
+----
+--
+--LOCK TABLES `ingredient` WRITE;
+--/*!40000 ALTER TABLE `ingredient` DISABLE KEYS */;
+--INSERT INTO `ingredient` VALUES (1,'Chinese fermented red bean curd',NULL,'grain',NULL),(2,'maltose or honey',NULL,'grain',NULL),(3,'Chinese Shaoxing wine',NULL,'grain',NULL),(4,'soy sauce',NULL,'grain',NULL),(5,'oyster sauce',NULL,'grain',NULL),(6,'dark and thick soy sauce',NULL,'grain',NULL),(7,'five-spice powder',NULL,'grain',NULL),(8,'white pepper powder',NULL,'grain',NULL),(9,'sugar',NULL,'grain',NULL),(10,'Char Siu Sauce',NULL,'grain',1),(11,'skinless pork belly',NULL,'grain',NULL),(12,'garlic',NULL,'grain',NULL);
+--/*!40000 ALTER TABLE `ingredient` ENABLE KEYS */;
+--UNLOCK TABLES;
+--
+----
+---- Dumping data for table `recipe`
+----
+--
+--LOCK TABLES `recipe` WRITE;
+--/*!40000 ALTER TABLE `recipe` DISABLE KEYS */;
+--INSERT INTO `recipe` VALUES (1,'Char Siu Sauce','1',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,_binary '\0','null','Method:\n1. Get a big bowl, mix all the Char Siu Sauce ingredients, add the garlic and pork belly and marinate overnight in the fridge.\n 2. The next day, heat the oven to 400 degrees F (200 degrees C).\n 3. Place the pork belly on a wire rack and bake for 15 minutes.\n 4. Removed from oven and turn the pork belly over, brush the remaining char siu sauce over and place the pork belly back in the oven for another 15 minutes or until cooked. The char siu will look dark in color, it’s normal.\n 5. Slice the char siu into thin and bite-size pieces, serve immediately with steamed white rice.\nCook\'s Notes:\nYou can heat up the the remaining Char Siu Sauce until it bubbles and thickens. Drizzle it on the Char Siu before serving. For the dark and thick soy sauce, you can use either kecap (kicap) manis, or regular dark/black soy sauce. If you are in Malaysia, just use the regular dark soy sauce.'),(2,'Pork Belly Char Siu ','1',3,'people',15,30,NULL,NULL,'Among the most favored pork dishes in Chinese / Cantonese cuisine, and a top selling dish in restaurants, Pork Belly Char Siu (meaning fork burn / roast) is traditionally prepared by skewering it with long forks and barbecuing it over open flames.','Among the most favored pork dishes in Chinese / Cantonese cuisine, and a top selling dish in restaurants, Pork Belly Char Siu (meaning fork burn / roast) is traditionally prepared by skewering it with long forks and barbecuing it over open flames.',_binary '','/images/rcp-0000002.jpg','Method:\n1. Get a big bowl, mix all the Char Siu Sauce ingredients, add the garlic and pork belly and marinate overnight in the fridge.\n 2. The next day, heat the oven to 400 degrees F (200 degrees C).\n 3. Place the pork belly on a wire rack and bake for 15 minutes.\n 4. Removed from oven and turn the pork belly over, brush the remaining char siu sauce over and place the pork belly back in the oven for another 15 minutes or until cooked. The char siu will look dark in color, it’s normal.\n 5. Slice the char siu into thin and bite-size pieces, serve immediately with steamed white rice.\nCook\'s Notes:\nYou can heat up the the remaining Char Siu Sauce until it bubbles and thickens. Drizzle it on the Char Siu before serving. For the dark and thick soy sauce, you can use either kecap (kicap) manis, or regular dark/black soy sauce. If you are in Malaysia, just use the regular dark soy sauce.'),(3,'Primo Tutto Mare','1',NULL,NULL,NULL,NULL,NULL,NULL,'Lobsters, black mussels, crawfish tails, crab, shrimp, heavy cream, and garlic, served piping hot over linguine, al dente. Is your mouth watering? Then Tutto Mare is the dish you deserve.',NULL,_binary '','/images/rcp-0000003.jpg','In a large skillet, sauté over medium heat, butter, oil, salt, pepper, red pepper and garlic for one minute.\n Add crab, mussell, shrimp, snd tomatoes, sauté until shrimp begins to turn opaque and mussels open.Add sherry,lobster stock and cream and bring to a boil, add Parmesan and cook approximately 5 minutes or until desired thickness. Add cooked noodles and serve.');
+--/*!40000 ALTER TABLE `recipe` ENABLE KEYS */;
+--UNLOCK TABLES;
+--
+--
+----
+---- Dumping data for table `recipeauthors`
+----
+--
+--LOCK TABLES `recipeauthors` WRITE;
+--/*!40000 ALTER TABLE `recipeauthors` DISABLE KEYS */;
+--/*!40000 ALTER TABLE `recipeauthors` ENABLE KEYS */;
+--UNLOCK TABLES;
+--
+----
+---- Dumping data for table `recipeingredient`
+----
+--
+--LOCK TABLES `recipeingredient` WRITE;
+--/*!40000 ALTER TABLE `recipeingredient` DISABLE KEYS */;
+--INSERT INTO `recipeingredient` VALUES (1,1,1,'2','pieces',NULL),(1,2,2,'1','tablespoon',NULL),(1,3,3,'1','tablespoon',NULL),(1,4,4,'1','tablespoon',NULL),(1,5,5,'1','tablespoon',NULL),(1,6,6,'1','teaspoon',NULL),(1,7,7,'1','teaspoon',NULL),(1,8,8,'1/4','teaspoon',NULL),(1,9,9,'3 1/25','oz',NULL),(2,3,10,'8','tablespoon','freshly made'),(2,1,11,'1','lb','cut into 2 long strips'),(2,2,12,'2','tablespoons','finely chopped');
+--/*!40000 ALTER TABLE `recipeingredient` ENABLE KEYS */;
+--UNLOCK TABLES;
+--

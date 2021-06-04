@@ -1,5 +1,6 @@
 package org.launchcode.DirtyDishesAndEmptyPlates.controllers;
 
+import org.launchcode.DirtyDishesAndEmptyPlates.models.GuestUser;
 import org.launchcode.DirtyDishesAndEmptyPlates.models.Recipe;
 import org.launchcode.DirtyDishesAndEmptyPlates.models.User;
 import org.launchcode.DirtyDishesAndEmptyPlates.models.data.RecipeRepository;
@@ -26,6 +27,8 @@ public class AuthenticationController {
     private RecipeRepository recipeRepository;
     
     private static final String userSessionKey = "user";
+    
+    private static final GuestUser guestUser = new GuestUser();
 
     public boolean loggerOuter(User user) {
         return true;
@@ -48,7 +51,7 @@ public class AuthenticationController {
     }
 
     private static void setupCommonAttributes(Model model, User user, String title) {
-        Boolean loggedin = (user != null && !user.getClass().equals("mnewbold.NatureHab.models.GuestUser"));
+        Boolean loggedin = (user != null && !user.equals(guestUser));
         model.addAttribute("loggedin", loggedin);
         model.addAttribute("user", user);
         model.addAttribute("title", title);
@@ -57,7 +60,7 @@ public class AuthenticationController {
     @RequestMapping("")
     public String displayIndex(HttpServletRequest request, Model model) {
         User user = getUserFromSession(request.getSession());
-        model.addAttribute("recipes", recipeRepository.findByFeatured(true));
+        model.addAttribute("recipes", recipeRepository.findAll());
         setupCommonAttributes(model, user, "Home");
         return "index";
     }
@@ -169,7 +172,7 @@ public class AuthenticationController {
     @GetMapping("/recipe")
     public String recipes(HttpServletRequest request, Model model) {
         User user = getUserFromSession(request.getSession());
-        model.addAttribute("recipes", recipeRepository.findByFeatured(true));
+        model.addAttribute("recipes", recipeRepository.findAll());
         setupCommonAttributes(model, user, "Recipes");
         return "recipe";
     }
