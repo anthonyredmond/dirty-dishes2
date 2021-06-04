@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name="ingredient")
 public class Ingredient extends AbstractEntity {
   public enum Type {
     vegetable, fruit, grain, dairy, protein, fat
@@ -20,6 +19,5 @@ public class Ingredient extends AbstractEntity {
   @Size(min=3, max=32)
   private String ingredientdescription;
   private Type ingredienttype;
-//  private List<RecipeIngredient> recipes;
 }
 
