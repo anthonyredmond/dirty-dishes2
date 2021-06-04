@@ -22,7 +22,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
     @Autowired
     AuthenticationController authenticationController;
     
-    private static final List<String> whitelist = Arrays.asList("/", "/login", "/logout", "/register", "/css",
+    private static final List<String> whitelist = Arrays.asList("/", "/error", "/login", "/logout", "/register", "/css",
       "/images", "/js", "/media");
     @Override
     public boolean preHandle(HttpServletRequest request,
@@ -39,7 +39,7 @@ public class AuthenticationFilter extends HandlerInterceptorAdapter {
 
         // The user is NOT logged in
         String uri = request.getRequestURI();
-        if (false /* !isWhitelisted(uri) */) {
+        if (!isWhitelisted(uri)) {
             response.sendRedirect("/login");
             return false;
         }
