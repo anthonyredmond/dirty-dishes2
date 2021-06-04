@@ -13,11 +13,6 @@ import static java.util.Objects.requireNonNullElse;
 @Entity
 @Table(name="user")
 public class User extends AbstractEntity {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "id", updatable = false, nullable = false)
-  private int id;
-  
   public enum Type {
     owner, admin, author, user, guest
   }
