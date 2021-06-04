@@ -11,6 +11,7 @@ import java.util.Objects;
 import static java.util.Objects.requireNonNullElse;
 
 @Entity
+@Table(name="user")
 public class User extends AbstractEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

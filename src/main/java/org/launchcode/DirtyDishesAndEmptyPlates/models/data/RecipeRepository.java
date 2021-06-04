@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 @Transactional
 public interface RecipeRepository extends CrudRepository<Recipe, Integer> {
-//  List<Recipe> findByFeatured(boolean featured);
+  List<Recipe> findByFeatured(boolean featured);
 }
 

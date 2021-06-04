@@ -52,7 +52,7 @@
       <td th:class="recipe">
         <a th:href="@{'/recipe/' + ${recipe.id}}" th:text="${recipe.title}"></a>
       </td>
-      <td th:class="author" th:text="Anthony Redmond"></td>
+      <td th:class="author" th:text="${'Anthony Redmond'}"></td>
       <td th:class="version" th:text="${recipe.version}"></td>
       <td th:class="serves" th:text="${recipe.servesCompressed()}"></td>
       <td th:class="preptime" th:text="${recipe.preptimeFmt()}"></td>

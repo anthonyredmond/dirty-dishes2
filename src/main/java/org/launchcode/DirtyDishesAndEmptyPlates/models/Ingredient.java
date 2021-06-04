@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name="ingredient")
 public class Ingredient extends AbstractEntity {
   public enum Type {
     vegetable, fruit, grain, dairy, protein, fat

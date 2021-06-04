@@ -6,6 +6,7 @@ import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
+@Table(name="recipeingredient")
 public class RecipeIngredient extends AbstractEntity {
   @NotNull
   private int recipeid;
