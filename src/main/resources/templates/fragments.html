@@ -47,7 +47,9 @@
     <tbody th:each="recipe: ${recipes}" th:class="${recipeStat.odd}?'odd':'even'">
     <tr>
       <td th:class="image" rowspan="2">
-        <img th:src="${recipe.image}">
+        <a th:href="@{'/recipe/' + ${recipe.id}}" target="recipeImages">
+          <img th:src="${recipe.image}">
+        </a>
       </td>
       <td th:class="recipe">
         <a th:href="@{'/recipe/' + ${recipe.id}}" th:text="${recipe.title}"></a>

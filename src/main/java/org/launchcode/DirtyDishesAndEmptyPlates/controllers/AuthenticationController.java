@@ -104,8 +104,6 @@ public class AuthenticationController {
         setUserInSession(request.getSession(), newUser);
         
         return "redirect:";
-        
-        
     }
     
     @GetMapping("/login")
@@ -140,7 +138,7 @@ public class AuthenticationController {
     
     
     @PostMapping("/logout")
-    public String logoutPost(Model model, HttpServletRequest request){
+    public String logoutPost(Model model, HttpServletRequest request) {
         User user = getUserFromSession(request.getSession());
         String username;
         if (user == null) {

@@ -15,7 +15,7 @@
       <table class="recipe-listing">
         <tr>
           <td th:class="image" rowspan="2">
-            <a th:case="*" th:href="${recipe.image}" target="recipeImages">
+            <a th:href="${recipe.image}" target="recipeImages">
               <img th:src="${recipe.image}">
             </a>
           </td>
