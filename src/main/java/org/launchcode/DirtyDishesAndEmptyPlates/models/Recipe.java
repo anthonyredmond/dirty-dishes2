@@ -224,6 +224,10 @@ public class Recipe extends AbstractEntity {
       return instructions;
   }
   
+  public String getInstructionsHTML() {
+    return getInstructions();
+  }
+  
   public String toHTML(String text) {
     return text.replaceAll("\\n", "<br />\n");
   }
