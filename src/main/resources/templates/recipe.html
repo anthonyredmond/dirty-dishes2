@@ -15,8 +15,8 @@
       <table class="recipe-listing">
         <tr>
           <td th:class="image" rowspan="2">
-            <a th:href="${recipe.image}" target="recipeImages">
-              <img th:src="${recipe.image}">
+            <a th:href="${recipe.getImage()}" target="recipeImages">
+              <img th:src="${recipe.getImage()}">
             </a>
           </td>
           <td th:class="id" th:text="${'ID: ' + recipe.id}">id</td>

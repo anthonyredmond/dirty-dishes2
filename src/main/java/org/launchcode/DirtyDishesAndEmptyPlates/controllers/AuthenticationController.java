@@ -35,7 +35,6 @@ public class AuthenticationController {
     }
     public User getUserFromSession(HttpSession session) {
         Integer userId = (Integer) session.getAttribute(userSessionKey);
-        System.out.println("userId:" + userId);
         if (userId == null) {
             return null;
         }

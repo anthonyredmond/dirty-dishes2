@@ -207,7 +207,7 @@ public class Recipe extends AbstractEntity {
   }
   
   public String getImage() {
-    if (image == null || image.length() == 0 || image.trim().length() == 0) {
+    if (image == null || image.isEmpty() || image.trim().isEmpty()) {
       return "/images/empty-plate.png";
     } else
       return image;
